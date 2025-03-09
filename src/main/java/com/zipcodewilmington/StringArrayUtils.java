@@ -100,7 +100,25 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
-        return false;
+        String alpha = "abcdefghijklmnopqrstuvwxyz";
+        StringBuilder sentence = new StringBuilder();
+        int tracker = 0;
+
+        for(String s:array){
+            sentence.append(s);
+        }
+
+        String arrayContent = sentence.toString().toLowerCase();
+        System.out.println(arrayContent);
+
+        for(int i =0; i <= 25; i++){
+            if(arrayContent.contains(String.valueOf(alpha.charAt(i)))){
+                tracker++;
+            }
+        }
+        System.out.println(tracker);
+
+        return (tracker == 26);
     }
 
     /**
