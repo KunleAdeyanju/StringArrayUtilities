@@ -1,5 +1,7 @@
 package com.zipcodewilmington;
 
+import java.util.ArrayList;
+
 /**
  * Created by leon on 1/29/18.
  */
@@ -61,7 +63,18 @@ public class StringArrayUtils {
      * @return an array with identical contents in reverse order
      */ // TODO
     public static String[] reverse(String[] array) {
-        return null;
+        ArrayList<String> reverseArray = new ArrayList<String>();
+
+        for(int i = array.length-1; i >= 0; i--){
+            reverseArray.add(array[i]);
+        }
+         //System.out.println(reverseArray);
+        //this works if you don't need the og array,
+        // alternatively create an array of equal size to the array list
+        // then throw that into the toArray method so
+        // String[] rArray = new String[reverse.size-1];
+        // reverserArray.toArray(rArray);
+        return reverseArray.toArray(array);
     }
 
     /**
