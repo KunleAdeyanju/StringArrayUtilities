@@ -1,6 +1,7 @@
 package com.zipcodewilmington;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by leon on 1/29/18.
@@ -72,8 +73,8 @@ public class StringArrayUtils {
         //this works if you don't need the og array,
         // alternatively create an array of equal size to the array list
         // then throw that into the toArray method so
-        // String[] rArray = new String[reverse.size-1];
-        // reverserArray.toArray(rArray);
+        // String[] rArray = new String[reverseArray.size-1];
+        // rArray = reverseArray.toArray(rArray);
         return reverseArray.toArray(array);
     }
 
@@ -82,7 +83,16 @@ public class StringArrayUtils {
      * @return true if the order of the array is the same backwards and forwards
      */ // TODO
     public static boolean isPalindromic(String[] array) {
-        return false;
+        ArrayList<String> reverseArray = new ArrayList<String>();
+
+        for(int i = array.length-1; i >= 0; i--){
+            reverseArray.add(array[i]);
+        }
+
+        String[] rArray = new String[reverseArray.size()-1];
+        rArray = reverseArray.toArray(rArray);
+
+        return (Arrays.compare(array,rArray) == 0);
     }
 
     /**
