@@ -2,6 +2,8 @@ package com.zipcodewilmington;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by leon on 1/29/18.
@@ -144,7 +146,18 @@ public class StringArrayUtils {
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
-        return null;
+        ArrayList<String> list = new ArrayList<String>(List.of(array));
+        list.remove(list.indexOf(valueToRemove));
+        System.out.println(list);
+
+        // needed to do this because array is a different size now
+        // one less item because of the removal
+        String[] nArray = new String[list.size()-1];
+        //nArray = list.toArray(nArray);
+
+
+
+        return list.toArray(nArray);
     }
 
     /**
@@ -152,7 +165,28 @@ public class StringArrayUtils {
      * @return array of Strings with consecutive duplicates removes
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
-        return null;
+        ArrayList<String> list = new ArrayList<String>();
+        list.add(array[0]);
+
+        //System.out.println("before: " + list);
+        // ArrayList<String> list = new ArrayList<String>();
+        for(int i = 1; i < array.length; i++) {
+            if(!array[i].equals(array[i-1])){
+                list.add(array[i]);
+                //System.out.println(list);
+            }
+
+        }
+        System.out.println("after "+list);
+
+        // needed to do this because array is a different size now
+        // one less item because of the removal
+
+        //nArray = list.toArray(nArray);
+
+
+
+        return list.toArray(new String[0]);
     }
 
     /**
